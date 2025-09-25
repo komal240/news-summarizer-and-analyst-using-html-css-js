@@ -13,7 +13,7 @@ analyzeBtn.addEventListener("click", async () => {
      summaryDiv.innerText = "Analyzing news, please wait...";
 
     try {
-        const response = await fetch("http://localhost:5000/analyze", {
+        const response = await fetch("https://news-summarizer-and-analyst-using.onrender.com/analyze", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
