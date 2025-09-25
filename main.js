@@ -13,8 +13,8 @@ analyzeBtn.addEventListener("click", async () => {
      summaryDiv.innerText = "Analyzing news, please wait...";
 
     try {
-        const response = await fetch("https://news-summarizer-and-analyst-using.onrender.com/analyze", {
-            method: "POST",
+        const response = await fetch("https://news-summarizer-and-analyst-using-zmdk.onrender.comanalyze", {
+         method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -29,13 +29,14 @@ analyzeBtn.addEventListener("click", async () => {
 
         const data = await response.json();
 
-        // Display either from DB or Gemini API
-        if (data.summery) {
-            summaryDiv.innerText = data.summery.join("\n");
-        } else if (data.recipe) {
-            summaryDiv.innerText = data.recipe;
+        if (data.summary) {
+        if (Array.isArray(data.summary)) {
+        summaryDiv.innerText = data.summary.join("\n");
         } else {
-            summaryDiv.innerText = "No summary available.";
+        summaryDiv.innerText = data.summary;
+        }
+        } else {
+        summaryDiv.innerText = "No summary available.";
         }
 
     } catch (error) {
