@@ -13,7 +13,7 @@ analyzeBtn.addEventListener("click", async () => {
      summaryDiv.innerText = "Analyzing news, please wait...";
 
     try {
-        const response = await fetch("https://komal240.github.io/news-summarizer-and-analyst-using-html-css-js/analyze", {
+        const response = await fetch("https://news-summarizer-and-analyst-using-zmdk.onrender.com/analyze", {
          method: "POST",
             headers: {
                 "Content-Type": "application/json"  
