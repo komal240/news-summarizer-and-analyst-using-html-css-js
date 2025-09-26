@@ -13,12 +13,12 @@ analyzeBtn.addEventListener("click", async () => {
      summaryDiv.innerText = "Analyzing news, please wait...";
 
     try {
-        const response = await fetch("https://news-summarizer-and-analyst-using-zmdk.onrender.comanalyze", {
+        const response = await fetch("https://komal240.github.io/news-summarizer-and-analyst-using-html-css-js//analyze", {
          method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json"  
             },
-            body: JSON.stringify({ news: newsText })  // Must match your Pydantic model field
+            body: JSON.stringify({ "news": newsText })  // Must match your Pydantic model field
         });
 
         if (!response.ok) {
@@ -41,6 +41,6 @@ analyzeBtn.addEventListener("click", async () => {
 
     } catch (error) {
         console.error("Error:", error);
-        summaryDiv.innerText = "Error fetching data.";
+        summaryDiv.innerText = error;
     }
 });
